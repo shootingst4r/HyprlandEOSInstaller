@@ -1,0 +1,21 @@
+
+
+# shooting_star
+
+#Volume Control
+bind= , XF86AudioLowerVolume, exec, amixer -D pulse sset Master 5%-
+bind= , XF86AudioRaiseVolume, exec , amixer -D pulse sset Master 5%+
+bind= , XF86AudioMute, exec, amixer -D pulse sset Master toggle
+
+#Player Control
+bind= , XF86AudioPlay, exec, playerctl play-pause
+bind= , XF86AudioStop, exec, playerctl play-pause
+bind= , XF86AudioPrev, exec, playerctl previous
+bind= , XF86AudioNext, exec, playerctl next
+
+#Backlight Control
+bind= , XF86MonBrightnessUp, exec, brightnessctl s 10%+
+bind= , XF86MonBrightnessDown, exec, brightnessctl s 10%-
+
+#Screenshots
+bind= SUPERSHIFT, S, exec, grim -g "$(slurp)" - | wl-copy
