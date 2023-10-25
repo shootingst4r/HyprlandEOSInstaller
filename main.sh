@@ -5,7 +5,10 @@ yay -S --needed hyprland kitty xdg-desktop-portal-hyprland sddm mako wofi polkit
 yay -S --needed vscodium-bin eww-wayland swww grim slurp
 
 #Optional Stuff
-yay -S --needed obsidian anki fish fisher starship spotify-launcher spicetify-cli discord torbrowser-launcher
+yay -S --needed obsidian anki fish fisher starship spotify-launcher spicetify-cli discord torbrowser-launcher steam
+
+#(mostly retarded) stuff i use
+yay -S --needed udisks2 songrec
 
 #Laptop Stuff
 yay -S --needed brightnessctl
