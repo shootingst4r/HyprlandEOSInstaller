@@ -5,11 +5,10 @@ DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 read -p 'Install Necessary Stuff? (y,N)' yn
 if [[ $yn == "Y" || $nes == "y" ]]; then
     yay -S --needed hyprland-nvidia-git kitty xdg-desktop-portal-hyprland sddm mako wofi polkit-kde-agent qt5-wayland wl-clipboard
-fi
-
-read -p 'Copy Hyprland Config? (y,N)' yn
-if [[ $yn == "Y" || $nes == "y" ]]; then
-    cp $DIR.hyprland.conf $DIR.keybinds.conf $DIR.exec.conf $DIR.env_var.conf ~/.config/hypr
+    read -p 'Copy Hyprland Config? (y,N)' yn
+    if [[ $yn == "Y" || $nes == "y" ]]; then
+        cp $DIR.hypr ~/.config/hypr
+    fi
 fi
 
 #Useful Stuff
@@ -48,9 +47,12 @@ if [[ $yn == "Y" || $yn == "y" ]]; then
     --ozone-platform-hint=auto" > ~/.config/electron25-flags.conf
 fi
 
+sudo systemctl enable --now bluetooth.service
 
-sudo systemctl enable --now bluetooth.service 
+echo "MAKE SURE TO FOLLOW VAXRY's ADVICE 
+=> https://wiki.hyprland.org/Nvidia/"
 
-echo "MAKE SURE TO FOLLOW VAXRY's ADVICE => https://wiki.hyprland.org/Nvidia/"
-read -p 'Are you  ready to finish up (will reboot)?'
-sudo systemctl enable --now sddm.service
+read -p 'Are you ready to finish up? ( THIS WILL RESTART PC) Always do this unless you are debugging. (y,N)' yn
+if [[ $yn == "Y" || $yn == "y" ]]; then
+    sudo systemctl enable --now sddm.service
+fi
