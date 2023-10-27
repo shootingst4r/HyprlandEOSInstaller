@@ -52,5 +52,5 @@ fi
 sudo systemctl enable --now bluetooth.service 
 
 echo "MAKE SURE TO FOLLOW VAXRY's ADVICE => https://wiki.hyprland.org/Nvidia/"
-read -p 'Are you ready to finish up (will reboot)?'
+read -p 'Are you  ready to finish up (will reboot)?'
 sudo systemctl enable --now sddm.service
