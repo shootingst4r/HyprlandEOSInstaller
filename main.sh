@@ -3,10 +3,10 @@
 DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 #Necessary Stuff
 read -p 'Install Necessary Stuff? (y,N)' yn
-if [[ $yn == "Y" || $nes == "y" ]]; then
+if [[ $yn == "Y" || $yn == "y" ]]; then
     yay -S --needed hyprland kitty xdg-desktop-portal-hyprland sddm mako wofi polkit-kde-agent qt5-wayland wl-clipboard
     read -p 'Copy Hyprland Config? (y,N)' yn
-    if [[ $yn == "Y" || $nes == "y" ]]; then
+    if [[ $yn == "Y" || $yn == "y" ]]; then
         cp $DIR.hypr ~/.config/hypr
     fi
 fi
@@ -49,7 +49,9 @@ fi
 
 sudo systemctl enable --now bluetooth.service 
 
-read -p 'Are you ready to finish up? ( THIS WILL RESTART PC) Always do this unless you are debugging. (y,N)' yn
-if [[ $yn == "Y" || $yn == "y" ]]; then
+read -p 'Are you ready to finish up? ( THIS WILL RESTART PC) Always do this unless you are debugging. (Y,n)' yn
+if [[ $yn == "N" || $yn == "n" ]]; then
+    echo "kk bro"
+else
     sudo systemctl enable --now sddm.service
 fi
