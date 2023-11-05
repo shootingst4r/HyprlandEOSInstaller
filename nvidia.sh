@@ -33,7 +33,7 @@ fi
 #(mostly retarded) stuff i use
 read -p 'Install "retarded" Stuff? (y,N)' yn
 if [[ $yn == "Y" || $yn == "y" ]]; then
-    yay -S --needed udisks2 songrec
+    yay -S --needed udisks2 songrec ani-cli
 fi
 
 #Laptop Stuff
