@@ -20,13 +20,14 @@ fi
 #Optional Stuff
 read -p 'Install Optional Stuff? (y,N)' yn
 if [[ $yn == "Y" || $yn == "y" ]]; then
-    yay -S --needed obsidian anki fish fisher starship spotify-launcher spicetify-cli spicetify-marketplace-bin discord torbrowser-launcher steam
+    yay -S --needed obsidian anki fish fisher starship spotify-launcher spicetify-cli discord torbrowser-launcher steam
     chsh -s /usr/bin/fish
     fisher install franciscolourenco/done
     fisher install nickeb96/puffer-fish
     fisher install jethrokuan/z
     echo "
     starship init fish | source" >> ~/.config/fish/config.fish
+    curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh | sh
 fi
 
 #(mostly retarded) stuff i use
