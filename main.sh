@@ -4,27 +4,28 @@ DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 #Necessary Stuff
 read -p 'Install Necessary Stuff? (y,N)' yn
 if [[ $yn == "Y" || $yn == "y" ]]; then
-    yay -S --needed hyprland kitty xdg-desktop-portal-hyprland sddm mako wofi polkit-kde-agent qt5-wayland wl-clipboard
-    read -p 'Copy Hyprland Config? (y,N)' yn
+    yay -S --needed hyprland-git kitty xdg-desktop-portal-hyprland sddm mako wofi polkit-kde-agent qt5-wayland wl-clipboard
+    read -p 'Replace Hyprland Config? (y,N)' yn
     if [[ $yn == "Y" || $yn == "y" ]]; then
-        cp $DIR.hypr ~/.config/hypr
+        rm ~/.config/hypr/hyprland.conf
+	cp -r $DIR/hypr ~/.config/
     fi
 fi
 
 #Useful Stuff
 read -p 'Install Useful Stuff? (y,N)' yn
 if [[ $yn == "Y" || $yn == "y" ]]; then
-    yay -S --needed vscodium-bin eww-wayland swww grim slurp
+    yay -S --needed vscodium-bin eww-wayland swww grim slurp 
 fi
 
 #Optional Stuff
 read -p 'Install Optional Stuff? (y,N)' yn
 if [[ $yn == "Y" || $yn == "y" ]]; then
-    yay -S --needed obsidian anki fish fisher starship spotify-launcher spicetify-cli discord torbrowser-launcher steam
+    yay -S --needed obsidian anki fish fisher starship spotify-launcher spicetify-cli discord torbrowser-launcher steam btop
     chsh -s /usr/bin/fish
-    fisher install franciscolourenco/done
-    fisher install nickeb96/puffer-fish
-    fisher install jethrokuan/z
+    fish -c "fisher install franciscolourenco/done"
+    fish -c "fisher install nickeb96/puffer-fish"
+    fish -c "fisher install jethrokuan/z"
     echo "
     starship init fish | source" >> ~/.config/fish/config.fish
     curl -fsSL https://raw.githubusercontent.com/spicetify/spicetify-marketplace/main/resources/install.sh | sh
